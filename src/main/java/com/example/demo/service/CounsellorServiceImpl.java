@@ -78,7 +78,7 @@ public class CounsellorServiceImpl implements CounsellorService{
 	}
 
 	@Override
-	public Counsellor findByEmail(String email, String pwd) {
+	public Counsellor findByEmail(String email) {
 		// TODO Auto-generated method stub
 		return null;
 	}

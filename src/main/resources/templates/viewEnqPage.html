@@ -17,16 +17,49 @@
 		    <a class="nav-link active" aria-current="page" href="#">Active</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="#">Link</a>
+		    <a class="nav-link" href="#">View Enquiries</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="#">Link</a>
+		    <a class="nav-link" href="#">Logout</a>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
 		  </li>
 		</ul>
+		<h1>View Enquiries Here</h1>
 		
+		<form th:action=""@{/filter-enq}" th:objects="${viewEnqFilter}" method="post">
+		
+			<table>
+				<tr>
+					<td>
+						Class Mode: <input type="text" th:field="*classmode""
+					</td>
+				</tr>
+			</table>
+		
+		</form>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Course</th>
+				<th>Mode</th>
+				<th>PhNo</th>
+				<th>Status</th>
+				<th>Edit</th>			
+			</tr>
+			
+			<tbody th:each=: enq: ${enquiries}"">
+			<td th:text="	enq: ${enquiries}"></td>
+			<td th:text="	enq: ${enq.stuName}"></td>
+			<td th:text="	enq: ${enq.courseName}"></td>
+			<td th:text="	enq: ${enq.classMode}"></td>
+			<td th:text="	enq: ${enq.courseName}"></td>
+			<td th:text="	enq: ${enq.courseName}"></td>
+				
+			</tbody>
+			
+		</table>
 		
 	</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

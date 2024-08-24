@@ -64,7 +64,7 @@ public class CounsellorController {
 	@PostMapping("/register")
 	public String handleReistration(Counsellor counsellor, Model model) {
 		
-		counsellorService.findByEmail(counsellor.getEmail())
+		counsellorService.findByEmail(counsellor.getEmail());
 	 boolean isRegister = counsellorService.register(counsellor);
 	 
 	 if(isRegister) {

@@ -13,5 +13,5 @@ public interface CounsellorService {
 	public Counsellor login(String email, String pwd);
 	public boolean register(Counsellor counsellor);
 	public DashboardResponse getDashboardInfo(Integer counsellorId);
-	public Counsellor findByEmail(String email, String pwd);
+	public Counsellor findByEmail(String email);
 }
