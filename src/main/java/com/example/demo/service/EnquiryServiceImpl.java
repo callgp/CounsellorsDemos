@@ -41,7 +41,7 @@ public class EnquiryServiceImpl implements EnquiryService {
 	@Override
 	public boolean addEnquiry(Enquiry enq, Integer CousellorId) throws Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println("tests");
 		com.example.demo.entity.Counsellor counsellor;
 		//try {
 			counsellor = cousellorRepo.findById(CousellorId).orElse(null);

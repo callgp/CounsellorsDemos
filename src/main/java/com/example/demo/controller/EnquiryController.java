@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.ViewEnqFilterRequest;
@@ -54,8 +55,8 @@ public class EnquiryController {
 	}
 	
 
-	@PostMapping("/addEnq")
-	public String handleAddEnquiryPage(Enquiry enq, HttpServletRequest req,Model model) throws Exception {
+	@PostMapping("/addEnquiry")
+	public String handleAddEnquiryPage(@ModelAttribute("enq") Enquiry enq, HttpServletRequest req,Model model) throws Exception {
 		
 	HttpSession session=req.getSession(false);
 	
@@ -69,22 +70,13 @@ public class EnquiryController {
 		model.addAttribute("emsg","enquiry failed");
 	}
 	
-	return null;
+	return "enquiryForm";
 		
 		
 	}
 	
 	
 	
-	//@GetMapping
-	//public String displayDashboard(HttpServletRequest req,Model model) {
-		
-		/*
-		 * Enquiry enqObj=new Enquiry(); model.addAttribute("enq",enqObj); return
-		 * "enquiryForm";
-		 */
-		
-		
-	//}
+
 
 }

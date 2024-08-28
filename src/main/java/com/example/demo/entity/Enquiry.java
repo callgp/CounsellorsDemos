@@ -20,7 +20,7 @@ public class Enquiry {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer enqId;
-	private String studentName;
+	private String stuName;
 	private String studentPhno;
 	private String courseName;
 	private String classMode;
@@ -41,13 +41,7 @@ public class Enquiry {
 		this.enqId = enqId;
 	}
 
-	public String getStudentName() {
-		return studentName;
-	}
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
 
 	public String getStudentPhno() {
 		return studentPhno;
@@ -104,5 +98,15 @@ public class Enquiry {
 	public void setCounsellor(Counsellor counsellor) {
 		this.counsellor = counsellor;
 	}
+
+	public String getStuName() {
+		return stuName;
+	}
+
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
+	}
+
+	
 
 }
