@@ -56,23 +56,24 @@ public class EnquiryController {
 	
 
 	@PostMapping("/addEnquiry")
-	public String handleAddEnquiryPage(@ModelAttribute("enq") Enquiry enq, HttpServletRequest req,Model model) throws Exception {
-		
-	HttpSession session=req.getSession(false);
+	public String handleAddEnquiryPage( Enquiry enq, HttpServletRequest req,Model model) throws Exception {
+	System.out.println("here handleAddEnquiryPage ");	
+	HttpSession session=req.getSession(false);	
 	
-	Integer counsellorId=(Integer)session.getAttribute("counsellorId");
-	
-	boolean isSaved = enqService.addEnquiry(enq, counsellorId);
-	
+	Integer counsellorId=(Integer)session.getAttribute("cousellorId");	
+	System.out.println("here counsellorId "+counsellorId);	
+	boolean isSaved = enqService.addEnquiry(enq, counsellorId);	
+//	if (counsellorId != null) {
 	if(isSaved) {
 		model.addAttribute("smsg","enquiry added");
 	}else {
 		model.addAttribute("emsg","enquiry failed");
-	}
-	
-	return "enquiryForm";
-		
-		
+	}	
+	//}
+	//else {
+	//	 model.addAttribute("emsg", "Counsellor ID cannot be null.");
+	//}
+	return "enquiryForm";		
 	}
 	
 	
