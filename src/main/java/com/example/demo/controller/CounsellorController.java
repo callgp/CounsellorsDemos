@@ -42,7 +42,7 @@ public class CounsellorController {
 		} else {
 
 			// valid login store counsellor id in session
-			 HttpSession session = request.getSession();
+			 HttpSession session = request.getSession(true);
 			session.setAttribute("counsellorId", c.getCounsellorId());
 			DashboardResponse dbresobj = counsellorService.getDashboardInfo(c.getCounsellorId());
 			model.addAttribute("dashboardInfo", dbresobj);

@@ -60,7 +60,7 @@ public class EnquiryController {
 	System.out.println("here handleAddEnquiryPage ");	
 	HttpSession session=req.getSession(false);	
 	
-	Integer counsellorId=(Integer)session.getAttribute("cousellorId");	
+	Integer counsellorId=(Integer)session.getAttribute("counsellorId");	
 	System.out.println("here counsellorId "+counsellorId);	
 	boolean isSaved = enqService.addEnquiry(enq, counsellorId);	
 //	if (counsellorId != null) {
@@ -69,6 +69,8 @@ public class EnquiryController {
 	}else {
 		model.addAttribute("emsg","enquiry failed");
 	}	
+	Enquiry enqObj=new Enquiry();
+	model.addAttribute("enq",enqObj);
 	//}
 	//else {
 	//	 model.addAttribute("emsg", "Counsellor ID cannot be null.");
