@@ -42,7 +42,7 @@ public class CounsellorController {
 		} else {
 
 			// valid login store counsellor id in session
-			 HttpSession session = request.getSession(true);
+			HttpSession session = request.getSession(true);
 			session.setAttribute("counsellorId", c.getCounsellorId());
 			DashboardResponse dbresobj = counsellorService.getDashboardInfo(c.getCounsellorId());
 			model.addAttribute("dashboardInfo", dbresobj);
@@ -76,10 +76,19 @@ public class CounsellorController {
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest req) {
 		HttpSession session = req.getSession(false);
-		if(session!=null) {
-		session.invalidate();
+		if (session != null) {
+			session.invalidate();
 		}
 		return "redirect:/";
 
 	}
+
+	@GetMapping("/dashboardFromNavBar")
+	public String viewDashboard(Counsellor counsellor, HttpServletRequest request, Model model) {	
+		HttpSession session = request.getSession(false);
+		Integer counsellorId = (Integer) session.getAttribute("counsellorId");
+		DashboardResponse dbresobj = counsellorService.getDashboardInfo(counsellorId);
+		model.addAttribute("dashboardInfo", dbresobj);
+		return "dashboard";
+	}	
 }

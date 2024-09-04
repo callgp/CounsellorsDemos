@@ -9,74 +9,91 @@
 </head>
 
 <body>
-<!--	<div class="login-container">-->
-		<h2>Add New Enquiry</h2>
-		<form th:action="@{/addEnquiry}" method="post" th:object="${enq}">
+	<!--	<div class="login-container">-->
 
-			<tr>
-				<td>
-					Studentname:
-				</td>
-				<td>
-					<input type="text" th:field="*{stuName}"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Phno:
-				</td>
-				<td>
-					<input type="text" th:field="*{studentPhno}"  />
-				</td>
-			</tr>
+	<ul class="nav">
+		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="dashboardFromNavBar">Dashboard</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="enquiry">Add Enquiry</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="viewenquiry">View Enquiry</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="logout">Logout</a>
+		</li>
 
+	</ul>
 
-			<tr>
-				<td>
-					Class Mode:
-				</td>
-				<td>
-					<select th:field="*{classMode}">
-						<option value="online">Online</option>
-						<option value="classRoom">Class Room</option>
-
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Course Mode:
-				</td>
-				<td>
-					<select th:field="*{courseName}">
-						<option value="Java">Java</option>
-						<option value="Python">Python</option>
-						<option value="Devops">Devops</option>
-						<option value="AWS">AWS</option>
-					</select>
-				</td>
-			</tr>
-
-
-
-
+	<h2>Add New Enquiry</h2>
+	<form th:action="@{/addEnquiry}" method="post" th:object="${enq}">
+		<input type="hidden" th:field="*{enqId}" />
+		<tr>
 			<td>
-				Enquiry:
+				Studentname:
 			</td>
 			<td>
-				<select th:field="*{enqStatus}">
-					<option value="Open">Open</option>
-					<option value="Enrolled">Enrolled</option>
-					<option value="Lost">Lost</option>
-					
+				<input type="text" th:field="*{stuName}" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Phno:
+			</td>
+			<td>
+				<input type="text" th:field="*{studentPhno}" />
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+				Class Mode:
+			</td>
+			<td>
+				<select th:field="*{classMode}">
+					<option value="online">Online</option>
+					<option value="classRoom">Class Room</option>
+
 				</select>
 			</td>
-			</tr>
+		</tr>
+		<tr>
+			<td>
+				Course Mode:
+			</td>
+			<td>
+				<select th:field="*{courseName}">
+					<option value="Java">Java</option>
+					<option value="Python">Python</option>
+					<option value="Devops">Devops</option>
+					<option value="AWS">AWS</option>
+				</select>
+			</td>
+		</tr>
 
 
 
-			<button type="submit" class="login-button">Save</button>
-		</form>
+
+		<td>
+			Enquiry Status:
+		</td>
+		<td>
+			<select th:field="*{enqStatus}">
+				<option value="Open">Open</option>
+				<option value="Enrolled">Enrolled</option>
+				<option value="Lost">Lost</option>
+
+			</select>
+		</td>
+		</tr>
+
+
+
+		<button type="submit" class="login-button">Save</button>
+	</form>
 
 	<!--</div>-->
 </body>
